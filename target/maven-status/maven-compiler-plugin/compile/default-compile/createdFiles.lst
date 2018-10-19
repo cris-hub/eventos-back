@@ -1,1 +1,5 @@
 com/colsubsidio/appeventos/AppeventosApplication.class
+com/colsubsidio/appeventos/controllers/ReservationController.class
+com/colsubsidio/appeventos/dao/interfaces/IReservationDAO.class
+com/colsubsidio/appeventos/dao/ReservationDAO.class
+com/colsubsidio/appeventos/models/Reservation.class
