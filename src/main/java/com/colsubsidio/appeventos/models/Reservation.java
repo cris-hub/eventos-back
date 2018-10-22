@@ -49,7 +49,7 @@ public class Reservation {
 
     @Override
     public String toString() {
-        return "Reservas{" + "id=" + id + ", reserva=" + reserva + ", nit=" + nit + '}';
+        return "Reservas{" + "id=" + id + ", w=" + reserva + ", nit=" + nit + '}';
     }
 
 }
