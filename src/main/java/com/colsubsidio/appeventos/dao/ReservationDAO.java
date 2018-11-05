@@ -32,7 +32,7 @@ public class ReservationDAO implements IReservationDAO {
         params.addValue("nit", reserva.getNit());
         params.addValue("reserva", reserva.getReserva());
         
-        jdbcTemplate.update("CALL PR_COLSEVENTOS_I_RESERVA(:id,:nit,:reserva)", params);
+        int update = jdbcTemplate.update("CALL PR_COLSEVENTOS_I_RESERVA(:id,:nit,:reserva)", params);
         return reserva;
     }
 
