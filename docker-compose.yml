@@ -1,6 +1,6 @@
 version: '3.5'
 services:
-  container_alianzas_back:
+  container_eventos-back:
     container_name: eventos-back-end
     build:
       context: ./

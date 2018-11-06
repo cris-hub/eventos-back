@@ -65,25 +65,25 @@ public class MailController {
      *
      * @return @throws MessagingException
      */
-    @RequestMapping("send-mail-attachment")
-    public String sendWithAttachment() throws MessagingException {
-
-        /*
-		 * Creating a User with the help of User class that we have declared and setting
-		 * Email address of the sender.
-         */
-        mail.setTo("mukul.jaiswal786@gmail.com");
-
-        /*
-		 * Here we will call sendEmailWithAttachment() for Sending mail to the sender
-		 * that contains a attachment.
-         */
-        try {
-            notificationService.sendEmailWithAttachment(mail);
-        } catch (MailException mailException) {
-            System.out.println(mailException);
-        }
-        return "Congratulations! Your mail has been send to the user.";
-    }
+//    @RequestMapping("send-mail-attachment")
+//    public String sendWithAttachment() throws MessagingException {
+//
+//        /*
+//		 * Creating a User with the help of User class that we have declared and setting
+//		 * Email address of the sender.
+//         */
+//        mail.setTo("mukul.jaiswal786@gmail.com");
+//
+//        /*
+//		 * Here we will call sendEmailWithAttachment() for Sending mail to the sender
+//		 * that contains a attachment.
+//         */
+//        try {
+//            notificationService.sendEmailWithAttachment(mail);
+//        } catch (MailException mailException) {
+//            System.out.println(mailException);
+//        }
+//        return "Congratulations! Your mail has been send to the user.";
+//    }
 
 }

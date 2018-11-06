@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 @SpringBootApplication
-public class AppeventosApplication extends WebMvcConfigurationSupport {
+public class AppeventosApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
 
@@ -19,7 +19,6 @@ public class AppeventosApplication extends WebMvcConfigurationSupport {
         openHomePage();
     }
 
-    @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("swagger-ui.html")
                 .addResourceLocations("classpath:/META-INF/resources/");
@@ -29,7 +28,7 @@ public class AppeventosApplication extends WebMvcConfigurationSupport {
     }
 
     private static void openHomePage() {
-        String url = "http://localhost:8008/swagger-ui.html#/";
+        String url = "http://localhost:8080/swagger-ui.html#/";
 
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();
