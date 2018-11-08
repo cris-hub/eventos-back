@@ -2,6 +2,7 @@ version: '3.5'
 services:
   container_eventos-back:
     container_name: eventos-back-end
+    image: eventos-back
     build:
       context: ./
       dockerfile: ./Dockerfile

@@ -12,6 +12,7 @@
 /.idea
 .project
 .classpath
+*.tar
 .c9/
 *.launch
 .settings/
