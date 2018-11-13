@@ -37,7 +37,7 @@ public class MailContentBuilder {
         ArrayList<Object> headquarterImages = (ArrayList<Object>) headquarter.get("images");
         
 
-        context.setVariable("nameEvent", reservation.get("nameEventId"));
+        context.setVariable("nameEvent", reservation.get("nameEvent"));
         context.setVariable("eventType", reservation.get("eventType"));
         context.setVariable("amountAttending", reservation.get("capacity"));
         context.setVariable("dateStart", reservation.get("dateStart"));

@@ -28,7 +28,7 @@ public class AppeventosApplication extends SpringBootServletInitializer {
     }
 
     private static void openHomePage() {
-        String url = "http://localhost:8080/swagger-ui.html#/";
+        String url = "http://localhost:8081/swagger-ui.html#/";
 
         if (Desktop.isDesktopSupported()) {
             Desktop desktop = Desktop.getDesktop();

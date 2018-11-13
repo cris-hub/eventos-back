@@ -40,8 +40,9 @@ public class MailDAO {
 
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
-            messageHelper.setFrom(mail.getFrom() == null ? "crisss198@hotmail.com" : mail.getFrom());
+            messageHelper.setFrom(mail.getFrom() == null ? "crisss198@gmail.com" : mail.getFrom());
             messageHelper.setTo(mail.getTo());
+            messageHelper.setCc(mail.getCopyyCC());
             messageHelper.setSubject(mail.getSubject() == null ? "Reserva" : mail.getSubject());
             String content = mailContentBuilder.build(reservation, "reserva-eventos");
             messageHelper.setText(content,true);

@@ -45,7 +45,7 @@ public class MailController {
 		 * Creating a User with the help of User class that we have declared and setting
 		 * Email address of the sender.
          */
-        mail.setTo(mail.getTo());
+        
         /*
 		 * Here we will call sendEmail() for Sending mail to the sender.
          */

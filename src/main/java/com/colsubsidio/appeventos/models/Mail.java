@@ -18,6 +18,7 @@ public class Mail {
     private String to;
     private String subject;
     private String content;
+    private String[] copyyCC;
 
     public Mail() {
     }
@@ -29,6 +30,15 @@ public class Mail {
         this.content = content;
     }
 
+    public String[] getCopyyCC() {
+        return copyyCC;
+    }
+
+    public void setCopyyCC(String[] copyyCC) {
+        this.copyyCC = copyyCC;
+    }
+
+    
     public String getFrom() {
         return from;
     }
