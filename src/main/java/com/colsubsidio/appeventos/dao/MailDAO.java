@@ -6,7 +6,6 @@
 package com.colsubsidio.appeventos.dao;
 
 import com.colsubsidio.appeventos.models.Mail;
-import com.google.gson.internal.LinkedHashTreeMap;
 import com.google.gson.internal.LinkedTreeMap;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -14,7 +13,6 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
@@ -36,16 +34,21 @@ public class MailDAO {
         this.mailContentBuilder = mailContentBuilder;
     }
 
-    public void sendEmail(Mail mail,LinkedTreeMap reservation) throws MailException {
+    public void sendEmail(Mail mail, LinkedTreeMap reservation) throws MailException {
 
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
-            messageHelper.setFrom(mail.getFrom() == null ? "crisss198@gmail.com" : mail.getFrom());
-            messageHelper.setTo(mail.getTo());
-            messageHelper.setCc(mail.getCopyyCC());
+
+            messageHelper.setFrom(mail.getFrom() == null ? "asesvirl@colsubsidio.com" : mail.getFrom());
+            if (mail.getTo() != null) {
+                messageHelper.setTo(mail.getTo());
+            }
+            if (mail.getCopyyCC()[0] != "") {
+                messageHelper.setCc(mail.getCopyyCC());
+            }
             messageHelper.setSubject(mail.getSubject() == null ? "Reserva" : mail.getSubject());
             String content = mailContentBuilder.build(reservation, "reserva-eventos");
-            messageHelper.setText(content,true);
+            messageHelper.setText(content, true);
         };
 
         javaMailSender.send(messagePreparator);

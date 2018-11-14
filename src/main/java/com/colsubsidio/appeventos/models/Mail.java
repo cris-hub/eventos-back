@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Mail {
 
-    private String from;
+    private String from = "asesvirl@colsubsidio.com";
     private String to;
     private String subject;
     private String content;
