@@ -45,7 +45,8 @@ public class MailContentBuilder {
         context.setVariable("nameEvent", reservation.get("nameEvent"));
         context.setVariable("experience", reservation.get("experience"));
         context.setVariable("amountAttending", reservation.get("capacity"));
-
+        context.setVariable("amountAttendingEventChildren", reservation.get("amountAttendingEventChildren"));
+        context.setVariable("amountAttendingEventAdults", reservation.get("amountAttendingEventAdults"));
         context.setVariable("dateStart", dateStart);
         context.setVariable("dateFinish", dateFinish);
         context.setVariable("headquarteName", headquarter.get("name"));

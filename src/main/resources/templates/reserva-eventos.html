@@ -122,7 +122,19 @@
                     <div>
                         <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 0.8em; line-height: 0.8em;">
 
-                            Numero de asistentes: <span th:text="${#numbers.formatInteger(amountAttending,1)}"></span>
+                            Adultos <span th:text="${#numbers.formatInteger(amountAttendingEventAdults,1)}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 0.8em; line-height: 0.8em;">
+
+                            Menores edad<span th:text="${#numbers.formatInteger(amountAttendingEventChildren,1)}"></span>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 0.8em; line-height: 0.8em;">
+
+                            Total <span th:text="${#numbers.formatInteger(amountAttending,1)}"></span>
                         </div>
                     </div>
 
