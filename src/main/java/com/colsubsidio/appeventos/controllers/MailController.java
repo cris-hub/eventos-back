@@ -55,9 +55,9 @@ public class MailController {
 
         } catch (MailException mailException) {
             System.out.println(mailException);
+            return mailException.toString();
         }
 
-        return "Error";
 
     }
 
