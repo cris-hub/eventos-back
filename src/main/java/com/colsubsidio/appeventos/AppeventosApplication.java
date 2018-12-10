@@ -16,7 +16,7 @@ public class AppeventosApplication extends SpringBootServletInitializer {
     public static void main(String[] args) {
 
         SpringApplication.run(AppeventosApplication.class, args);
-        openHomePage();
+        // openHomePage();
     }
 
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
