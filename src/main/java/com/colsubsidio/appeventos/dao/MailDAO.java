@@ -17,6 +17,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
+import java.util.ResourceBundle;
 
 /**
  *
@@ -36,10 +37,11 @@ public class MailDAO {
 
     public void sendEmail(Mail mail, LinkedTreeMap reservation) throws MailException {
 
+        ResourceBundle rb = ResourceBundle.getBundle("application");
         MimeMessagePreparator messagePreparator = mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
 
-            messageHelper.setFrom(mail.getFrom() == null ? "asesvirl@colsubsidio.com" : mail.getFrom());
+            messageHelper.setFrom(rb.getString("spring.mail.username"));
             if (mail.getTo() != null) {
                 messageHelper.setTo(mail.getTo());
             }
