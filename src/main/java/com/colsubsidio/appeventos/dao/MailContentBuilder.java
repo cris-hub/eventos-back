@@ -54,6 +54,9 @@ public class MailContentBuilder {
         context.setVariable("loungeName", lounge.get("name"));
         context.setVariable("loungeImages", loungeImages);
         context.setVariable("nameCompany", company.get("nameCompany"));
+        context.setVariable("mobilePhone", company.get("mobilePhone"));
+        context.setVariable("landline", company.get("landline"));
+        context.setVariable("extLandline", company.get("extLandline"));
         context.setVariable("NIT", company.get("NIT"));
         context.setVariable("numberVerification", company.get("numberVerification"));
         context.setVariable("responsable", company.get("responsable"));
