@@ -1,226 +1,364 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-divansitional.ddiv">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
-    <head>
-        <meta http-equiv="Content-Type" content="tetx/html; charset=UTF-8" />
-        <title>Eventos</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta http-equiv="Content-Type" content="tetx/html; charset=UTF-8" />
+    <title>Eventos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    </head>
+</head>
 
-    <body class="bodyContent" style="margin: 0; padding: 0; width:100%;">
-        <div align="center" style=" height: auto;background: #1F005B;  color: #153643; font-size: 0.8em; font-weight: bold; font-family: Arial, sans-serif;">
-            <div>
-                <img style="width: auto; height: auto;" src="https://www.colsubsidio.com/images/logo.png" alt="" />
-            </div>
+<body class="bodyContent" style="margin: 0; padding: 0; width:100%;">
+    <div align="center" style=" height: 5em; width: 100%;background: #1F005B;  color: #153643; font-size: 0.8em; font-weight: bold; font-family: Arial, sans-serif;">
+        <div>
+            <!-- <img style="width: auto; height: auto;" src="https://www.colsubsidio.com/images/logo.png" alt="" /> -->
+            <!-- <img style="width: auto; height: auto;" src="./logo.png" alt="" /> -->
         </div>
-        <div style="width:50em; height: auto; background: #F5F5F5; padding: 0px 50px 0px 50px;">
-            <div style="width: 50em; height: auto; background: #ffffff;  padding: 40px 30px 40px 30px;">
-                <div border="0" cellpadding="0" cellspacing="0" width="50em">
-                    <div>
-                        <div style="color: #34005B; font-family: Arial, sans-serif; font-size: 1em;">
-                            <b> Solicitud de cotización.</b>
-                        </div>
+    </div>
+    <div style=" height: auto; background: #F5F5F5; padding: 0px 50px 0px 50px;">
+        <div style=" height: auto; background: #ffffff;  padding: 40px 15px 40px 15px;">
+            <div border="0" cellpadding="0" cellspacing="0" width="50em">
+                <div>
+                    <div style="color: #34005B; font-family: Arial, sans-serif; font-size: 1em;">
+                        <b> Solicitud de cotización.</b>
                     </div>
+                </div>
 
-                    <div>
-                        <div style="display: inherit">
-                            <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.4em;
-                                 width:50em;
+                <div>
+                    <div style="display: inherit">
+                        <div style="padding: 20px 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.4em;
+                               
                                  ">
-                                Reciba un cordial saludo de COLSUBSIDIO. De acuerdo con su solicitud, estaremos remitiendo
-                                propuesta de servicios sugeridos para el evento que usted acaba de solicitar. Alguno de
-                                nuestros funcionarios de Eventos estará en contacto con usted.
-                            </div>
-                            <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.4em;
-                                 width:50em;
-                                 ">
-                                Nombre evento: <span th:text="${nameEvent}"></span>
-                            </div>
-
-                            <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.4em;
-                                 width:50em;
-                                 ">
-                                Experiencia: <span th:text="${experience.name}"></span>
-                            </div>
+                            Reciba un cordial saludo de COLSUBSIDIO. De acuerdo con su solicitud, estaremos remitiendo
+                            propuesta de servicios sugeridos para el evento que usted acaba de solicitar. Alguno de
+                            nuestros funcionarios de Eventos estará en contacto con usted.
                         </div>
+
                     </div>
+                </div>
 
-                    <div>
+                <!-- <div>
 
-                        <div style="display: inherit; width: 100%;height:  50%;  padding: 0.5em 0.5em 0.5em 0.5em;color: #153643;  font-family: Arial, sans-serif; font-size: 1em;
+                    <div style="display: inherit; width: 100%;height:  50%;  padding: 0.5em 0.5em 0.5em 0.5em;color: #153643;  font-family: Arial, sans-serif; font-size: 1em;
                              border: 1px solid #ddd;">
-                            <div align="center">
-                                sede <span th:utext="${headquarteName}"></span>
-                            </div>
-                            <div th:each="image : ${headquarterImages}" style="display: flex;">
-                                <img style="height:  50%;width:  50%;"  th:src="${image.get('imagen').get('src')}" />
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <br/>
-                    <hr/>
-                    <br/>
-
-
-                    <div style="display: inherit; width: 100%;height:  50%;  padding: 0.5em 0.5em 0.5em 0.5em; color: #153643; font-family: Arial, sans-serif; font-size: 1em;
-                         border: 1px solid #ddd; ">
                         <div align="center">
-                            salon <span th:text="${loungeName}"></span>
+                            sede <span th:utext="${headquarteName}"></span>
                         </div>
-                        <div th:each="image : ${loungeImages}" style="display: flex;">
-                            <img style="height:  50%;width:  50%;"   th:src="${image.get('imagen').get('src')}" />
-                        </div>
-                    </div>
-                    <br/>
-                    <br/>
-
-
-                    <div>
-
-                        <div style=" padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em; 
-                             width: 50em;
-                             ">
-                            Fecha y hora inicio <span th:text="${#dates.format(dateStart, 'dd/MMM/yyyy HH:mm')}"></span>
-
-                        </div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em; 
-                             width: 50em;
-                             ">
-
-                            Fecha y hora fin: <span th:text="${#dates.format(dateFinish, 'dd/MMM/yyyy HH:mm')}"></span>
+                        <div th:each="image : ${headquarterImages}" style="display: flex;">
+                            <img style="height:  50%;width:  50%;" th:src="${image.get('imagen').get('src')}" />
                         </div>
 
-
-                    </div>
-
-
-
-
-
-
-                    <div style="display: inherit">
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;
-                             width: 50em;">
-                            Empresa: <span th:text="${nameCompany}"></span>
-                        </div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;
-                             width: 50em;">
-                            Telefono: <span th:text="${#numbers.formatInteger(mobilePhone,1)}"></span>
-                        </div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;
-                             width: 50em;">
-                            fijo: <span th:text="${#numbers.formatInteger(landline,1)}"></span> - ext: <span th:text="${#numbers.formatInteger(extLandline,1)}"></span>
-                        </div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em; 
-                             width: 50em;">
-                            NIT Empresa: <span th:text="${#numbers.formatInteger(NIT,1)}"></span> - <span th:text="${#numbers.formatInteger(numberVerification,1)}"></span>
-                        </div>
-                    </div>
-                    <div style="display: inherit">
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;
-                             width: 50em;">
-                            Responsable: <span th:text="${responsable}"></span>
-                        </div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em; 
-                             width: 50em;">
-                            Correo: <span th:text="${mail}"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;">
-                            Adultos <span th:text="${#numbers.formatInteger(amountAttendingEventAdults,1)}"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;">
-                            Niños <span th:text="${#numbers.formatInteger(amountAttendingEventChildren,1)}"></span>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;">
-                            Total <span th:text="${#numbers.formatInteger(amountAttending,1)}"></span>
-                        </div>
-                    </div>
-
-
-                    <div>
-                        <div style="padding: 20px 0 30px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height: 1.1em;">
-
-                            Adicionales:
-                            <span th:if="${hasBreakfast == true}">Desayuno, </span>
-                            <span th:if="${hasLunch == true}">Almuerzo, </span>
-                            <span th:if="${hasRefreshmentAM == true}">Refrigerio a.m, </span>
-                            <span th:if="${hasRefreshmentPM == true}">Refrigerio p.m, </span>
-                            <span th:if="${hasDinner == true}">Cena</span>
-                            <span th:if="${hasIllumination == true}">Iluminación, </span>
-                            <span th:if="${hasProfessionalSound == true}">Sonido profesional, </span>
-                            <span th:if="${hasPallet == true}">Tarima, </span>
-                            <span th:if="${hasTent == true}">Carpa</span>
-                            <span th:if="${hasDedicatedChannel == true}">Canal dedicado, </span>
-                            <span th:if="${hasSpeaker == true}">Conferencista, </span>
-                            <span th:if="${hasArtPresentations == true}">Presentaciones artisticas, </span>
-                            <span th:if="${hasTransport == true}">Transporte, </span>
-                            <span th:if="${hasOthers == true}"></span>
-                            <span th:if="${others != null}">
-                                OTROS: <span th:text="${others}"></span>
-                            </span>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="font-family: Arial, sans-serif; font-size: 1em;">
-                            Gracias por preferir los servicios de COLSUBSIDIO.
-                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <br />
+                <hr />
+                <br />
 
 
+                <div style="display: inherit; width: 100%;height:  50%;  padding: 0.5em 0.5em 0.5em 0.5em; color: #153643; font-family: Arial, sans-serif; font-size: 1em;
+                         border: 1px solid #ddd; ">
+                    <div align="center">
+                        salon <span th:text="${loungeName}"></span>
+                    </div>
+                    <div th:each="image : ${loungeImages}" style="display: flex;">
+                        <img style="height:  50%;width:  50%;" th:src="${image.get('imagen').get('src')}" />
+                    </div>
+                </div>
+                <br />
+                <br />
+ -->
+                <div>
+                    <table>
 
+                    </table>
 
-        <div style="width: 100%">
-            <div style="background: #F4F2F3; padding: 30px 30px 30px 30px;">
-                <div border="0" cellpadding="0" cellspacing="0">
-                    <div>
-
-                        <div width="">
-                            <div border="0" cellpadding="0" cellspacing="0">
-                                <div style="display: flex" align="right">
-                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                        <a href="https://www.facebook.com/ColsubsidioInfo/" style="color: #1F005B;">
-                                            <img src="https://www.colsubsidio.com/uploads/2016/10/fb.png" alt="Facebook"
-                                                 width="38" height="38" style="display: block;" border="0" />
-                                        </a>
-                                    </div>
-                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                        <a href="https://twitter.com/Colsubsidio_Ofi" style="color: #1F005B;">
-                                            <img src="https://www.colsubsidio.com/uploads/2016/10/tw.png" alt="Twitter"
-                                                 width="38" height="38" style="display: block;" border="0" />
-                                        </a>
-                                    </div>
-                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                        <a href="https://twitter.com/Colsubsidio_Ofi" style="color: #1F005B;">
-                                            <img src="https://www.colsubsidio.com/uploads/2016/10/tw.png" alt="Twitter"
-                                                 width="38" height="38" style="display: block;" border="0" />
-                                        </a>
-                                    </div>
-                                    <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
-                                        <a href="https://www.linkedin.com/company-beta/757002/" style="color: #1F005B;">
-                                            <img src="https://www.colsubsidio.com/uploads/2016/10/in.png" alt="Twitter"
-                                                 width="38" height="38" style="display: block;" border="0" />
-                                        </a>
-                                    </div>
-
+                    <table>
+                        <tr>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    Nombre evento:
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    <span th:text="${nameEvent}"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    Experiencia:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    <span th:text="${experience.name}"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    Fecha y hora inicio
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    <span th:text="${#dates.format(dateStart, 'dd/MMM/yyyy HH:mm')}"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                            ">
+                                    Fecha y hora fin:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                            ">
+                                    <span th:text="${#dates.format(dateFinish, 'dd/MMM/yyyy HH:mm')}"></span>
+                                </div>
+                            </td>
+
+
+
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                        ">
+                                    Fijo:
+                                </div>
+                            </td>
+                            <td>
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                        ">
+                                    <span th:text="${#numbers.formatInteger(landline,1)}"></span> - ext: <span
+                                        th:text="${#numbers.formatInteger(extLandline,1)}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                        ">
+                                    NIT Empresa:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                        ">
+                                    <span th:text="${#numbers.formatInteger(NIT,1)}"></span> - <span th:text="${#numbers.formatInteger(numberVerification,1)}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    Empresa:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    <span th:text="${nameCompany}"></span>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    Telefono:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;">
+                                    <span th:text="${#numbers.formatInteger(mobilePhone,1)}"></span>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    Responsable:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    <span th:text="${responsable}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    Correo:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    <span th:text="${responsable}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    Adultos:
+                                </div>
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    <span th:text="${#numbers.formatInteger(amountAttendingEventAdults,1)}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    Niños:
+                                </div>
+
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    <span th:text="${#numbers.formatInteger(amountAttendingEventChildren,1)}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    Total:
+                                </div>
+
+                            </td>
+                            <td colspan="1">
+                                <div style=" padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:  1.1em;
+                                    ">
+                                    <span th:text="${#numbers.formatInteger(amountAttending,1)}"></span>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 0 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:1.4em;">
+
+                                    Adicionales:
+                                    <span th:if="${hasBreakfast == true}">Desayuno, </span>
+                                    <span th:if="${hasLunch == true}">Almuerzo, </span>
+                                    <span th:if="${hasRefreshmentAM == true}">Refrigerio a.m, </span>
+                                    <span th:if="${hasRefreshmentPM == true}">Refrigerio p.m, </span>
+                                    <span th:if="${hasDinner == true}">Cena</span>
+                                    <span th:if="${hasIllumination == true}">Iluminación, </span>
+                                    <span th:if="${hasProfessionalSound == true}">Sonido profesional, </span>
+                                    <span th:if="${hasPallet == true}">Tarima, </span>
+                                    <span th:if="${hasTent == true}">Carpa</span>
+                                    <span th:if="${hasDedicatedChannel == true}">Canal dedicado, </span>
+                                    <span th:if="${hasSpeaker == true}">Conferencista, </span>
+                                    <span th:if="${hasArtPresentations == true}">Presentaciones artisticas, </span>
+                                    <span th:if="${hasTransport == true}">Transporte, </span>
+                                    <span th:if="${hasOthers == true}"></span>
+                                    <span th:if="${others != null}">
+                                        OTROS: <span th:text="${others}"></span>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td colspan="1">
+                                <div style="padding: 20px 0 15px 0; color: #153643; font-family: Arial, sans-serif; font-size: 1em; line-height:1.4em;">
+                                    Gracias por preferir los servicios de COLSUBSIDIO.
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+
+                    <table style="width: 100%;">
+                        <tr>
+                            <td colspan="1">
+
+                                <div style="">
+                                    <div style="background: #F4F2F3; padding: 15px 15px 15px 15px;">
+                                        <div border="0" cellpadding="0" cellspacing="0">
+                                            <div>
+
+                                                <!-- <div width="">
+                                                    <div border="0" cellpadding="0" cellspacing="0">
+                                                        <div style="display: flex" align="right">
+                                                            <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                                <a href="https://www.facebook.com/ColsubsidioInfo/"
+                                                                    style="color: #1F005B;">
+                                                                    <img src="https://www.colsubsidio.com/uploads/2016/10/fb.png"
+                                                                        alt="Facebook" width="38" height="38" style="display: block;"
+                                                                        border="0" />
+                                                                </a>
+                                                            </div>
+                                                  
+                                                            <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                                <a href="https://twitter.com/Colsubsidio_Ofi" style="color: #1F005B;">
+                                                                    <img src="https://www.colsubsidio.com/uploads/2016/10/tw.png"
+                                                                        alt="Twitter" width="38" height="38" style="display: block;"
+                                                                        border="0" />
+                                                                </a>
+                                                            </div>
+                                                            <div style="font-family: Arial, sans-serif; font-size: 12px; font-weight: bold;">
+                                                                <a href="https://www.linkedin.com/company-beta/757002/"
+                                                                    style="color: #1F005B;">
+                                                                    <img src="https://www.colsubsidio.com/uploads/2016/10/in.png"
+                                                                        alt="Twitter" width="38" height="38" style="display: block;"
+                                                                        border="0" />
+                                                                </a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
+
             </div>
         </div>
-    </body>
+    </div>
+
+
+
+
+
+</body>
 
 </html>
