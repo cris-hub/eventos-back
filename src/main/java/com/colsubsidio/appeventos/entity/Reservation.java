@@ -3,17 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.colsubsidio.appeventos.models;
+package com.colsubsidio.appeventos.entity;
+
+import java.io.Serializable;
+import java.util.Map;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author mac
  */
-public class Reservation {
+@Entity(name = "reservations")
+public class Reservation implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(columnDefinition = "TEXT")
     private String reserva;
-    private String nit;
+    @Column(columnDefinition = "TEXT")
+    private String nit ;
 
     public Reservation(String reserva, String nit) {
         this.reserva = reserva;
@@ -52,4 +65,7 @@ public class Reservation {
         return "Reservas{" + "id=" + id + ", w=" + reserva + ", nit=" + nit + '}';
     }
 
+    public String toJson() {
+        return new com.google.gson.Gson().toJson(this);
+    }
 }

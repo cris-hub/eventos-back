@@ -5,19 +5,18 @@
  */
 package com.colsubsidio.appeventos.dao;
 
-import com.colsubsidio.appeventos.models.Mail;
+import com.colsubsidio.appeventos.model.Mail;
 import com.google.gson.internal.LinkedTreeMap;
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,8 +25,8 @@ import java.util.ResourceBundle;
 @Service
 public class MailDAO {
 
-    private JavaMailSender javaMailSender;
-    private MailContentBuilder mailContentBuilder;
+    private final JavaMailSender javaMailSender;
+    private final MailContentBuilder mailContentBuilder;
 
     @Autowired
     public MailDAO(JavaMailSender javaMailSender, MailContentBuilder mailContentBuilder) {
@@ -36,40 +35,27 @@ public class MailDAO {
     }
 
     public void sendEmail(Mail mail, LinkedTreeMap reservation) throws MailException {
+        try {
+            ResourceBundle rb = ResourceBundle.getBundle("application");
+            MimeMessagePreparator messagePreparator = mimeMessage -> {
+                MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
 
-        ResourceBundle rb = ResourceBundle.getBundle("application");
-        MimeMessagePreparator messagePreparator = mimeMessage -> {
-            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+                messageHelper.setFrom(rb.getString("spring.mail.username"));
+                if (mail.getTo() != null) {
+                    messageHelper.setTo(mail.getTo());
+                }
+                if (!"".equals(mail.getCopyyCC()[0])) {
+                    messageHelper.setCc(mail.getCopyyCC());
+                }
+                messageHelper.setSubject(mail.getSubject() == null ? "Reserva" : mail.getSubject());
+                String content = mailContentBuilder.build(reservation, "reserva-eventos");
+                messageHelper.setText(content, true);
+            };
 
-            messageHelper.setFrom(rb.getString("spring.mail.username"));
-            if (mail.getTo() != null) {
-                messageHelper.setTo(mail.getTo());
-            }
-            if (mail.getCopyyCC()[0] != "") {
-                messageHelper.setCc(mail.getCopyyCC());
-            }
-            messageHelper.setSubject(mail.getSubject() == null ? "Reserva" : mail.getSubject());
-            String content = mailContentBuilder.build(reservation, "reserva-eventos");
-            messageHelper.setText(content, true);
-        };
-
-        javaMailSender.send(messagePreparator);
+            javaMailSender.send(messagePreparator);
+        } catch (MailException mailException) {
+            Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, mailException);
+            throw mailException;
+        }
     }
-
-    public void sendEmailWithAttachment(Mail mail) throws MailException, MessagingException {
-
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
-
-        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
-
-        helper.setTo(mail.getTo());
-        helper.setSubject("Testing Mail API with Attachment");
-        helper.setText("Please find the attached document below.");
-
-        FileSystemResource file = new FileSystemResource("/home/rockhard/Desktop/Registration.pdf");
-        helper.addAttachment(file.getFilename(), file);
-
-        javaMailSender.send(mimeMessage);
-    }
-
 }

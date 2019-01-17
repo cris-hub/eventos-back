@@ -5,7 +5,7 @@
  */
 package com.colsubsidio.appeventos.dao.interfaces;
 
-import com.colsubsidio.appeventos.models.Reservation;
+import com.colsubsidio.appeventos.entity.Reservation;
 
 /**
  *
