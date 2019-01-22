@@ -1,9 +1,41 @@
-version: '3.5'
+version: '2'
 services:
-  container_eventos-back:
-    container_name: eventos-back-end
-    image: eventos-back
-    build:
+  back_service:
+    image:  crishubprojects/eventos-back:latest
+    expose:
+      - "80"
+    build:  
       context: ./
       dockerfile: ./Dockerfile
+    networks:
+      - network   
+    volumes: 
+      - back-dist:/back-dist
+      - back-logs:/var/log
+    restart: always
+  proxy_service:
+    image:  crishubprojects/eventos-back-proxy:latest
+    ports:
+      - "80:80"
+    build:
+     context: ./
+     dockerfile: ./Dockerfile
+    networks:
+      - network 
+    volumes:
+      - "proxy-config:/etc/nginx"
+      - proxy-logs:/var/log
+    links:
+      - back_service    
+    restart: always
+
+volumes:
+  back-dist:
+  back-logs:
+  proxy-config:
+  proxy-logs:
+networks:
+  network:
+
+   
         
