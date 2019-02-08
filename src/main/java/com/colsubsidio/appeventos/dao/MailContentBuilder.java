@@ -56,14 +56,28 @@ public class MailContentBuilder {
             context.setVariable("headquarterImages", headquarterImages);
             context.setVariable("loungeName", lounge.get("name"));
             context.setVariable("loungeImages", loungeImages);
-            context.setVariable("nameCompany", company.get("nameCompany"));
-            context.setVariable("mobilePhone", company.get("mobilePhone"));
-            context.setVariable("landline", company.get("landline"));
-            context.setVariable("extLandline", company.get("extLandline"));
-            context.setVariable("NIT", company.get("NIT"));
-            context.setVariable("numberVerification", company.get("numberVerification"));
-            context.setVariable("responsable", company.get("responsable"));
-            context.setVariable("mail", company.get("mail"));
+
+            if (!company.get("typeDocument").toString().equals("01")) {
+                context.setVariable("typeDocument", "Documento");
+                context.setVariable("nameCompany", company.get("namePerson"));
+                context.setVariable("mobilePhone", company.get("mobilePhonePerson"));
+                context.setVariable("landline", company.get("landlinePerson"));
+                context.setVariable("extLandline", company.get("extLandline"));
+                context.setVariable("NIT", company.get("cedula"));
+                context.setVariable("numberVerification", company.get("numberVerification"));
+                context.setVariable("responsable", company.get("responsablePerson"));
+                context.setVariable("mail", company.get("mailPerson"));
+            } else {
+                context.setVariable("typeDocument", "NIT");
+                context.setVariable("nameCompany", company.get("nameCompany"));
+                context.setVariable("mobilePhone", company.get("mobilePhoneCompany"));
+                context.setVariable("landline", company.get("landlineCompany"));
+                context.setVariable("extLandline", company.get("extLandline"));
+                context.setVariable("NIT", company.get("NIT"));
+                context.setVariable("numberVerification", company.get("numberVerification"));
+                context.setVariable("responsable", company.get("responsableCompany"));
+                context.setVariable("mail", company.get("mailCompany"));
+            }
 
             context.setVariable("hasBreakfast", reservation.get("hasBreakfast"));
             context.setVariable("hasLunch", reservation.get("hasLunch"));

@@ -1,7 +1,7 @@
 version: '2'
 services:
   back_service:
-    image:  crishubprojects/eventos-back:latest
+    image:  eventos/eventos-back:latest
     expose:
       - "80"
     build:  
@@ -14,7 +14,7 @@ services:
       - back-logs:/var/log
     restart: always
   proxy_service:
-    image:  crishubprojects/eventos-back-proxy:latest
+    image:  eventos/eventos-proxy:latest
     ports:
       - "80:80"
     build:
@@ -28,7 +28,6 @@ services:
     links:
       - back_service    
     restart: always
-
 volumes:
   back-dist:
   back-logs:

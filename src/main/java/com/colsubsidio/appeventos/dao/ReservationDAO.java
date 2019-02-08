@@ -31,14 +31,17 @@ public class ReservationDAO implements IReservationDAO {
     @Override
     public Reservation createReserva(Reservation reserva) {
         try {
+            //parametros que van a la base de datos
             MapSqlParameterSource params = new MapSqlParameterSource();
             KeyHolder holder = new GeneratedKeyHolder();
+            //asignacion valores que llegan de la peticion
             params.addValue("id", 0,Statement.RETURN_GENERATED_KEYS);
             params.addValue("nit", reserva.getNit());
             params.addValue("reserva", reserva.getReserva());
             
-
+            //Se ejecuta el procedimiento, update trae la respuesta si el procedimiento es exitoso
             int update = jdbcTemplate.update("CALL PR_COLSEVENTOS_I_RESERVA(:id,:nit,:reserva)", params,holder);
+            //holder retorna el valor de la llave unica (esto si en la base de datos no esta AUTO_INCwEMENT)
             System.out.println(holder.getKey());
         } catch (DataAccessException dataAccessException) {
             Logger.getLogger(ReservationDAO.class.getName()).log(Level.SEVERE, null, dataAccessException);
